@@ -14,7 +14,7 @@
   <div id="formContent">
     <!-- Tabs Titles -->
     <h2 class="active"> Sign In </h2>
-      <h2 class="inactive underlineHover"><a href="signup.php">Sign Up</a> </h2>
+      <h2 class="inactive underlineHover"><a href="signup.php">SignUp</a> </h2>
 
     <!-- Icon -->
     <div class="fadeIn first">
