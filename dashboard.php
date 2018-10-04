@@ -68,23 +68,12 @@ session_start();
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="manifesto.php">
                         <i class="ti-view-list-alt"></i>
-                        <p>Agenda</p>
+                        <p>manifesto</p>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="ti-text"></i>
-                        <p>Typography</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="ti-bell"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
+               
 
             </ul>
     	</div>
@@ -106,7 +95,7 @@ session_start();
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="ti-panel"></i>
+                                <i class="ti-user"></i>
 								<p>Welcome <?= $_SESSION['name'] ?></p>
                             </a>
                         </li>

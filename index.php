@@ -25,12 +25,13 @@
 	<body class="landing">
 
 		<!-- Header -->
-			<header id="header">
+			<header id="header" style="color:white;">
 				<h1><a href="index.php">eVOTER</a></h1>
 				<nav id="nav">
 					<ul>
-						<li><a href="index.php">Home</a></li>
+						<li><a href="#">Home</a></li>
 						<li><a href="voting.php">Days to Elections</a></li>
+                        <li><a href="viewcandidates.php">Candidates</a></li>
 						<li><a href="">Live Results</a></li>
 						<li><a href="signup.php" class="button special">Sign Up</a></li>
 						<li><a href="login.php" class="button special">Sign In</a></li>

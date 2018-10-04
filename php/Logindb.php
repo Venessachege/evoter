@@ -17,9 +17,18 @@
                     $_SESSION['id'] = $row['User_id'];
 				    $_SESSION['userEmail'] = $row['Email'];
 				   $_SESSION['name'] = $row['First_name'];
+                    $_SESSION['lname'] = $row['Last_name'];
+				   $_SESSION['usertype']=$row['Usertype_id'];
                     $_SESSION['loggedIn'] = true;
-               
-                    header("location:/brettinterfaces/dashboard.php");
+					
+					if(($_SESSION['usertype'])==2)
+					{
+                    header("location:/brett/admin.php");
+					}
+					else if(($_SESSION['usertype'])==1){
+					header("location:/brett/candidatepro.php");
+					}
+					
                 }
                 else{
                     echo "Passwords do not match";

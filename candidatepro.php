@@ -1,3 +1,7 @@
+<?php
+session_start();
+include_once"php/connection.php";
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -55,23 +59,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="manifesto.php">
                         <i class="ti-view-list-alt"></i>
-                        <p>Agenda</p>
+                        <p>Manifesto</p>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="ti-text"></i>
-                        <p>Typography</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="ti-bell"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
+               
 
             </ul>
     	</div>
@@ -93,8 +86,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="ti-panel"></i>
-								<p>Current Statistics</p>
+                                <i class="ti-user"></i>
+								<p>Welcome <?= $_SESSION['name'] ?></p>
                             </a>
                         </li>
                         <li class="dropdown">
@@ -113,7 +106,7 @@
                               </ul>
                         </li>
 						<li>
-                            <a href="#">
+                            <a href="index.php" onclick="noBack()">
 								<i class="ti-bell"></i>
 								<p>Logout</p>
                             </a>
@@ -135,8 +128,12 @@
                             </div>
                             <div class="content">
                                 <div class="author">
-                                  <img class="avatar border-white" src="assets/img/faces/face-2.jpg" alt="..."/>
-                                  <h4 class="title">Francis Becker<br />
+                                  <img class="avatar border-white" id="avatar" src="images/user.png" alt="..."/>
+
+                                  <!--Form for image upload-->
+                                <input class="hidden" type="file" name="add-image" id="add-image">
+
+                                  <h4 class="title">Venessa Chege<br />
                                      <a href="#"><small>@President</small></a>
                                   </h4>
                                 </div>
@@ -168,22 +165,22 @@
                             <div class="content">
                                 <form>
                                     <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label>Company</label>
-                                                <input type="text" class="form-control border-input" disabled placeholder="student number" value="99177">
-                                            </div>
-                                        </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>Username</label>
-                                                <input type="text" class="form-control border-input" placeholder="Username" value="michael23">
+                                                <label>Voter Id</label>
+                                                <input type="text" class="form-control border-input" disabled placeholder="student number" value="<?= $_SESSION['id'] ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
+                                                <label>Username</label>
+                                                <input type="text" class="form-control border-input" placeholder="Username" value="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control border-input" placeholder="Email">
+                                                <input type="email" class="form-control border-input" placeholder="Email" value="<?= $_SESSION['userEmail'] ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -192,13 +189,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>First Name</label>
-                                                <input type="text" class="form-control border-input" placeholder="Company" value="">
+                                                <input type="text" class="form-control border-input" placeholder="Company" value="<?= $_SESSION['name'] ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Last Name</label>
-                                                <input type="text" class="form-control border-input" placeholder="Last Name" value="">
+                                                <input type="text" class="form-control border-input" placeholder="Last Name" value="<?= $_SESSION['lname'] ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -206,8 +203,8 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Group</label>
-                                                <input type="text" class="form-control border-input" placeholder="Home Address" value="">
+                                                <label>Telephone</label>
+                                                <input type="text" class="form-control border-input" placeholder="Telephone number" value="">
                                             </div>
                                         </div>
                                     </div>
@@ -216,19 +213,19 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Year</label>
-                                                <input type="text" class="form-control border-input" placeholder="City" value="">
+                                                <input type="text" class="form-control border-input" placeholder="Current year" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Course</label>
-                                                <input type="text" class="form-control border-input" placeholder="Country" value=" ">
+                                                <input type="text" class="form-control border-input" placeholder="Course" value=" ">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>Postal Code</label>
-                                                <input type="number" class="form-control border-input" placeholder="ZIP Code">
+                                                <label>Class</label>
+                                                <input type="number" class="form-control border-input" placeholder="Class">
                                             </div>
                                         </div>
                                     </div>
@@ -293,5 +290,5 @@
 	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
 
-
+    <script src="js/scripts.js"></script>
 </html>
