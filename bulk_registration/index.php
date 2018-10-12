@@ -1,5 +1,5 @@
 <html>
-<head><title>upload</title></upload>
+    <head><title>upload</title></head>
 <body>
 <form  action="upload.php" method="POST"
            enctype="multipart/form-data">

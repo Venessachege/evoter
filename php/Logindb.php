@@ -7,7 +7,11 @@
             $email = $mysqli->real_escape_string($_POST['Email']);
             $password = $mysqli->real_escape_string($_POST['Password']);
 
-            $query="SELECT * FROM users where `Email` ='$email';";
+            $query = "SELECT * FROM users"
+            . "	INNER JOIN candidate_details"
+            . "    ON users.User_id = candidate_details.User_id"
+            . "    WHERE users.Email = '$email';";
+        
             $result = $mysqli->query($query) OR die($mysqli->error);
             if($result->num_rows > 0){
                 $row = $result->fetch_assoc();
@@ -16,13 +20,19 @@
                 if($match){
                     $_SESSION['id'] = $row['User_id'];
 				    $_SESSION['userEmail'] = $row['Email'];
-				   $_SESSION['name'] = $row['First_name'];
+				    $_SESSION['name'] = $row['First_name'];
                     $_SESSION['lname'] = $row['Last_name'];
-				   $_SESSION['usertype']=$row['Usertype_id'];
+				    $_SESSION['usertype']=$row['Usertype_id'];
+                    $_SESSION['telephone']=$row['telephone'];
+                    $_SESSION['faculty']=$row['faculty'];
+                     $_SESSION['manifesto']=$row['Manifesto'];
+                    $_SESSION['year']=$row['year'];
+                    $_SESSION['course']=$row['course'];
                     $_SESSION['loggedIn'] = true;
+                    
 					
 					if(($_SESSION['usertype'])==2)
-					{
+					{ 
                     header("location:/brett/admin.php");
 					}
 					else if(($_SESSION['usertype'])==1){

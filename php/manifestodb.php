@@ -1,9 +1,12 @@
 <?php
 session_start();
+
 if (isset($_POST["postmanifesto"])) {
         include_once 'connection.php';
-     $manifesto = $mysqli->real_escape_string($_REQUEST['editor1']);
-      $sql = "INSERT INTO manifesto (copy) VALUES ('$manifesto')";
+   
+     $manifesto = $mysqli->real_escape_string($_REQUEST['manifesto']);
+     
+      $sql = "UPDATE candidate_details SET manifesto='$manifesto'WHERE User_id=".$_SESSION['id'].";";
 
                 if($mysqli->query($sql) === true){
                     //Sends sign up email to user
@@ -13,5 +16,5 @@ if (isset($_POST["postmanifesto"])) {
                 }else{
                     echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
                 }
-           }                           
-?>
+           }                          
+?> 

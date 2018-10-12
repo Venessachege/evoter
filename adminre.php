@@ -44,6 +44,17 @@ session_start();
 
     </head>
     <body>
+        
+        <?php 
+            if(isset($_SESSION['error_msg'])){
+                print_r($_SESSION['error_msg']);
+                unset($_SESSION['error_msg']);
+            }
+        ?>
+        
+        
+        
+        
 
         <div class="wrapper">
             <div class="sidebar" data-background-color="black" data-active-color="danger">
@@ -73,18 +84,7 @@ session_start();
                                 <p>Query</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="ti-text"></i>
-                                <p>Typography</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="ti-bell"></i>
-                                <p>Notifications</p>
-                            </a>
-                        </li>
+                       
 
                     </ul>
                 </div>

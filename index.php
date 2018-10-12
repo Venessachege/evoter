@@ -92,7 +92,7 @@
 					</header>
 				</div>
 				<div class="container 50%">
-					<form action="#" method="post">
+					<form action="" method="post">
 						<div class="row uniform">
 							<div class="6u 12u$(small)">
 								<input name="name" id="name" value="" placeholder="Name" type="text">

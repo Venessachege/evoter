@@ -1,8 +1,3 @@
-//$("#datepicker").datepicker({ 
-//        autoclose: true, 
-//        todayHighlight: true,
-//        format: "mm/dd/yy"
-//  });
 $("#avatar").on('click', function () {
         $("#add-image").trigger('click').on('change', function () {
 
@@ -66,4 +61,36 @@ function updateProfileImage (new_path){
         }
 
     });
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+        
 }
+
+/**
+* Notification helper for display
+* @param {string} type success||warning||danger||info
+* @param {string} icon icon class to be used
+* @param {string} message Message to be displayed
+*/
+var notify = function (type,icon,message){
+    $.notify({
+        	icon: icon,
+        	message: message
+
+        },{
+            type: type,
+            timer: 4000,
+            placement: {
+                from: 'top',
+                align: 'right',
+            }
+        });
+};

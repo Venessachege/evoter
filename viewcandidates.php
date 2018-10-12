@@ -21,11 +21,16 @@
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-xlarge.css" />
 		</noscript>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
 </head>
 <title>
    
 </title>
-<body>
+<body style="background-color: #263238;">
+<!--
     <header id="header">
 				<h1><a href="index.php">eVOTER</a></h1>
 				<nav id="nav">
@@ -39,9 +44,51 @@
 					</ul>
 				</nav>
 			</header>
+-->
+   <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
+    <a class="navbar-brand" href="index.php">Home</a>
+    <button class="btn btn-success ml-auto">Always Show</button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+        <ul class="navbar-nav text-right">
+            <li class="nav-item active">
+                <a class="nav-link" href="voting.php">Days to Election</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Candidates</a>
+                
+            </li>
+             <li class="nav-item active">
+                <a class="nav-link" href="">Live Results</a>
+                
+            </li>
+             <li class="nav-item active">
+                <a class="nav-link" href="#">Sign Up</a>
+                
+            </li>
+             <li class="nav-item active">
+                <a class="nav-link" href="signup.php" class="button special">Sign Up</a> 
+                
+            </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="login.php" class="button special">Sign In</a> 
+                
+            </li>
+            
+        </ul>
+    </div>
+</nav>
+  
+
+
+   
     <?php 
         require_once('php/connection.php');
-        $result =$mysqli->query("SELECT * FROM candidate_details ;") OR die($mysqli->error);
+        $result =$mysqli->query("SELECT * FROM users"
+            . "	INNER JOIN candidate_details"
+            . "    ON users.User_id = candidate_details.User_id") OR die($mysqli->error);
         $candidates = mysqli_fetch_all($result,MYSQLI_ASSOC);    
     ?>
     <div class="row">
@@ -49,9 +96,9 @@
             <div class="card col-md-3">
               <img class="card-img-top" src="<?= $candidate['image'];?>" style="width: 100%;" alt="Card image cap">
               <div class="card-body">
-                <h5 class="card-title"><?= $candidate['name']; ?></h5>
+                <h5 class="card-title"><?= $candidate['First_name']; ?></h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="candidatesmanifesto.php?candidate=<?= $candidate['User_id']?>" class="btn btn-primary">View Manifesto</a>
               </div>
             </div>
         <?php endforeach; ?>
@@ -60,3 +107,4 @@
 
 </body>
 </html>
+ 

@@ -73,18 +73,7 @@ session_start();
                         <p>Query</p>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="ti-text"></i>
-                        <p>Typography</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="ti-bell"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
+                
 
             </ul>
     	</div>

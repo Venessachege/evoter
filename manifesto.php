@@ -124,13 +124,13 @@ session_start();
                 <div class="row">
           <div class="card">         
         <form action="php/manifestodb.php" method="post">
-            <textarea name="editor1" id="editor1" rows="10" cols="80">
-                This is my textarea to be replaced with CKEditor.
+            <textarea name="manifesto" id="manifesto" rows="10" cols="80">
+                <?= $_SESSION['manifesto'] ?>                
             </textarea>
             <script>
                 // Replace the <textarea id="editor1"> with a CKEditor
                 // instance, using default configuration.
-                CKEDITOR.replace( 'editor1' );
+                CKEDITOR.replace( 'manifesto' );
             </script>
             <div class="row">
             <div class="col-md-12"></div>
