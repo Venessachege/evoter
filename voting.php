@@ -75,7 +75,7 @@ https://wordpress.org/plugins/coming2live/
 							</div>
 							
 							<!-- countdown__module hide undefined -->
-							<div class="countdown__module hide undefined" data-date="2019/5/21">
+							<div class="countdown__module hide undefined" data-date="2018/9/25">
 								<p><span>%D</span> Days</p>
 								<p><span>%H</span> Hours</p>
 								<p><span>%M</span> Minutes</p>
